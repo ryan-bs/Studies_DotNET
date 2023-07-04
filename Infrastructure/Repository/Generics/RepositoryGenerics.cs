@@ -23,27 +23,45 @@ namespace Infrastructure.Repository.Generics
 
         public async Task Add(T Objeto)
         {
-            throw new NotImplementedException();
+            using (var data = new ContextBase(_OptionsBuilder))
+            {
+                await data.Set<T>().AddAsync(Objeto);
+                await data.SaveChangesAsync();
+            }
         }
 
         public async Task Delete(T Objeto)
         {
-            throw new NotImplementedException();
+            using (var data = new ContextBase(_OptionsBuilder))
+            {
+                data.Set<T>().Remove(Objeto);
+                await data.SaveChangesAsync();
+            }
         }
 
         public async Task<T> GetEntityById(int Id)
         {
-            throw new NotImplementedException();
+            using (var data = new ContextBase(_OptionsBuilder))
+            {
+                return await data.Set<T>().FindAsync(Id);
+            }
         }
 
         public async Task<List<T>> List()
         {
-            throw new NotImplementedException();
+            using (var data = new ContextBase(_OptionsBuilder))
+            {
+                return await data.Set<T>().ToListAsync();
+            }
         }
 
         public async Task Update(T Objeto)
         {
-            throw new NotImplementedException();
+            using (var data = new ContextBase(_OptionsBuilder))
+            {
+                data.Set<T>().Update(Objeto);
+                await data.SaveChangesAsync();
+            }
         }
 
         #region Disposed https://docs.microsoft.com/pt-br/dotnet/standard/garbage-collection/implementing-dispose
