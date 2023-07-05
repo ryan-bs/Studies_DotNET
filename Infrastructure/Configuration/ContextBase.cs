@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Configuration
 {
-    internal class ContextBase : IdentityDbContext<ApplicationUser>
+    public class ContextBase : IdentityDbContext<ApplicationUser>
     {
         public ContextBase(DbContextOptions<ContextBase> options) : base(options) { }
 

@@ -1,4 +1,19 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using AutoMapper;
+using Domain.Interfaces;
+using Domain.Interfaces.Generics;
+using Domain.Interfaces.InterfaceServices;
+using Domain.Services;
+using Entities.Entities;
+using Infrastructure.Configuration;
+using Infrastructure.Repository.Generics;
+using Infrastructure.Repository.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using WebAPIs.Models;
+using WebAPIs.Token;
+
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
