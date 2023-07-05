@@ -14,7 +14,7 @@ namespace Entities.Entities
         [Column("USR_CPF")]
         public string CPF { get; set; }
         
-        [Column("USR_CPF")]
+        [Column("USR_TIPO")]
         public TipoUsuario? Tipo { get; set; }
     }
 }
